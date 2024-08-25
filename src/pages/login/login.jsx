@@ -19,7 +19,7 @@ export function Login() {
         </div>
         <div className="grid">
           <div
-            className="min-w-[450px] min-h-[700px] sm:py-12 sm:px-[68px] m-auto"
+            className="md:min-w-[450px] min-w-full min-h-[700px] sm:py-12 py-0 px-[5%] sm:m-auto m-0"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
           >
             <header>
