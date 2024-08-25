@@ -1,4 +1,4 @@
-import logo from "../../assets/netflix-logo.svg";
+import logo from "../../assets/svgs/netflix-logo.svg";
 import backgroundImage from "../../assets/background-image.jpg";
 
 export function Login() {
