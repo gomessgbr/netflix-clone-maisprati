@@ -1,14 +1,22 @@
+import { useEffect } from "react";
 import { MovieCard } from "./MovieCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { useGetMovies } from "../hooks/useGetMovies";
+
+const typesMovies = {
+  upcoming: "Em Breve",
+  top_rated: "Bem Avaliados",
+  popular: "Tendências",
+  now_playing: "Em Cartaz",
+};
+
 /* eslint-disable react/prop-types */
-export function MovieList({ data, title }) {
-  const { results } = data;
-  if (!results) {
-    return null;
-  }
+export function MovieList({ title }) {
+  const { movies, getMovies } = useGetMovies();
+
   const settings = {
     dots: false,
     infinite: true,
@@ -40,14 +48,34 @@ export function MovieList({ data, title }) {
     ],
   };
 
+  useEffect(() => {
+    const typeKey = Object.keys(typesMovies).find(
+      (key) => typesMovies[key] === title
+    );
+    getMovies(typeKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [title]);
+
   return (
     <div className="px-4 md:px-12 mt-4 space-y-8 text-white">
       <div>
         <p className="text-lg font-semibold mb-4">{title}</p>
         <Slider {...settings}>
-          {results.map((movie) => (
-            <MovieCard key={movie.id.toString()} url={movie.backdrop_path} id={movie.id} title={movie.title} />
+          {movies.length > 0 && movies.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              url={movie.backdrop_path}
+              id={movie.id}
+              title={movie.title}
+            />
           ))}
+          {
+            !movies && (
+              <div>
+                <p>Problemas ao carregar seus filmes, desculpe</p>
+              </div>
+            )
+          }
         </Slider>
       </div>
     </div>
