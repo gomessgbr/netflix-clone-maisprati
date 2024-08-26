@@ -46,7 +46,7 @@ export function MovieList({ data, title }) {
         <p className="text-lg font-semibold mb-4">{title}</p>
         <Slider {...settings}>
           {results.map((movie) => (
-            <MovieCard key={movie.id.toString()} url={movie.backdrop_path} id={movie.id} />
+            <MovieCard key={movie.id.toString()} url={movie.backdrop_path} id={movie.id} title={movie.title} />
           ))}
         </Slider>
       </div>
