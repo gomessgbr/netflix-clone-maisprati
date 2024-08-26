@@ -8,7 +8,7 @@ export function useGetMovies() {
     try {
       const response = await requestClient(
         "get",
-        "3/movie/popular?language=pt-BR&page=1"
+        "movie/popular?language=pt-BR&page=1"
       );
       setMovies(response);
     } catch (error) {

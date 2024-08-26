@@ -8,7 +8,7 @@ export function useGetMovieImage() {
     try {
       const response = await requestClient(
         "get",
-        `/3/movie/${idMovie}/images?include_image_language=pt&language=pt-BR`
+        `movie/${idMovie}/images?include_image_language=pt&language=pt-BR`
       );
       if (response.posters.length > 0) {
         console.log('teste')
