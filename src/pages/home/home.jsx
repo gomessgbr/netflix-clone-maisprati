@@ -6,7 +6,6 @@ import { useGetCollection } from "./hooks/useGetColletion";
 import { MovieCard } from "./components/MovieCard";
 import trailer from "../../assets/trailer/sex-education.mp4";
 
-// TODO - Implementar o video de preview na home
 // TODO - Fazer a parte das telas, quando clicar carregar cada uma das categorias da páginas
 // TODO - Dar erro quando os inputs da tela de login forem vazios
 
@@ -26,19 +25,21 @@ export function Home() {
   return (
     <div className="bg-black min-h-screen min-w-[100dvw] ">
       <NavBar onSearch={onSearch} />
-      <div className="flex h-2/5 bg-black">
-        <video className="w-full " autoPlay muted loop>
-          <source src={trailer} type="video/mp4" />
-        </video>
-      </div>
 
       {query === "" && (
-        <div className="pb-40">
-          <MovieList title={"Tendências"} />
-          <MovieList title={"Bem Avaliados"} />
-          <MovieList title={"Em Breve"} />
-          <MovieList title={"Em Cartaz"} />
-        </div>
+        <>
+          <div className="relative w-full h-2/5 bg-black">
+            <video className="object-contain" autoPlay muted loop>
+              <source src={trailer} type="video/mp4" />
+            </video>
+          </div>
+          <div className="pb-40">
+            <MovieList title={"Tendências"} />
+            <MovieList title={"Bem Avaliados"} />
+            <MovieList title={"Em Breve"} />
+            <MovieList title={"Em Cartaz"} />
+          </div>
+        </>
       )}
       {query !== "" && (
         <div className="grid grid-rows-* grid-cols-6 gap-4">
