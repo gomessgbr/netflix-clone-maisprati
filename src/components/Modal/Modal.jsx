@@ -7,11 +7,9 @@ export function Modal({ open, data, image, onClose }) {
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
-      onClose(); // Chama a função de fechamento
+      onClose();
     }
   };
-  console.log("Data= ", data);
-  console.log("image ", image);
 
   return createPortal(
     <div
@@ -20,21 +18,26 @@ export function Modal({ open, data, image, onClose }) {
     >
       <dialog
         open={open}
-        className="bg-neutral-950 rounded-lg p-6 max-w-4xl w-full max-h-screen overflow-auto border-none text-white"
+        className="bg-neutral-950 rounded-lg p-6 min-h-96 max-w-4xl w-full max-h-screen overflow-auto border-none text-white"
       >
-        <div className="flex flex-col items-center">
-          {image && (
-            <img
-              src={`https://image.tmdb.org/t/p/w300/${image.file_path}`}
-              alt="poster"
-              width={400}
-              height={500}
-            />
-          )}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">{data.title}</h2>
-            <p className="text-lg mb-6">{data.overview}</p>
+        {!!data && (
+          <div className="flex flex-col items-center">
+            {image && (
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${image.file_path}`}
+                alt="poster"
+                className="max-w-fit object-cover"
+              />
+            )}
+            <div className="text-center p-10">
+              <h2 className="text-3xl font-bold mb-4">{data.title}</h2>
+              <p className="text-lg mb-6">{data.overview}</p>
+            </div>
           </div>
+        )}
+
+        <div className="flex flex-col items-center">
+          <span>Sem dados desse filme</span>
         </div>
       </dialog>
     </div>,
