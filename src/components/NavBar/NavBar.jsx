@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/svgs/netflix-logo.svg";
-// TODO - Implementar o video de preview na home
-// TODO - Fazer a parte das telas, quando clicar carregar cada uma das categorias da páginas
-export function NavBar({onSearch}) {
+
+export function NavBar({ onSearch }) {
   return (
     <header className="z-10 block relative w-full bg-black text-white">
       <nav className="flex px-[4%] items-center min-h-[68px] relative">
