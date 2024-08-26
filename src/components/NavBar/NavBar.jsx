@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/svgs/netflix-logo.svg";
-
-export function NavBar() {
+// TODO - Implementar o video de preview na home
+// TODO - Fazer a parte das telas, quando clicar carregar cada uma das categorias da páginas
+export function NavBar({onSearch}) {
   return (
     <header className="z-10 block relative w-full bg-black text-white">
       <nav className="flex px-[4%] items-center min-h-[68px] relative">
@@ -9,7 +12,7 @@ export function NavBar() {
         </a>
         <ul className="flex text-sm leading-4">
           <li className="ml-5">
-            <a href="#">Início</a>
+            <NavLink to={"/home"}>Início</NavLink>
           </li>
           <li className="ml-5">
             <a href="#">Séries</a>
@@ -48,7 +51,10 @@ export function NavBar() {
               name=""
               id=""
               placeholder="Título, gente e gêneros"
-              className="bg-transparent  p-[7px] pr-[14px] placeholder:text-[14px] focus:outline-none "
+              className="bg-transparent  p-[7px] pr-[14px] placeholder:text-[14px] focus:outline-none"
+              onChange={(e) => {
+                onSearch(e);
+              }}
             />
           </label>
         </div>
