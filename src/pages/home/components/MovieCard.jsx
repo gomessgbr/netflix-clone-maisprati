@@ -4,7 +4,7 @@ import { Modal } from "../../../components";
 import { useGetMovieImage } from "../hooks/useGetMovieImage";
 
 /* eslint-disable react/prop-types */
-export function MovieCard({title, url, id }) {
+export function MovieCard({ title, url, id }) {
   const { details, getDetails } = useGetMovieDetails();
   const { getImage, image } = useGetMovieImage();
   const [showModal, setShowModal] = useState(false);
@@ -23,8 +23,7 @@ export function MovieCard({title, url, id }) {
       onClick={handleClick}
     >
       <div className="relative">
-      <p className="absolute text-slate-200 top-0 p-4" >{title}</p>
-
+        <p className="absolute text-slate-200 top-0 p-4">{title}</p>
       </div>
       <img
         src={`https://image.tmdb.org/t/p/w300/${url}`}
