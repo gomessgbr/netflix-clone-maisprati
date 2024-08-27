@@ -8,7 +8,7 @@ export function useGetCollection() {
     try {
       const response = await requestClient(
         "get",
-        `/search/collection?query=${query}&include_adult=false&language=pt-BR&page=1`
+        `/search/multi?query=${query}&include_adult=false&language=pt-BR&page=1`
       );
 
       setMoviesCollection(response.results);
