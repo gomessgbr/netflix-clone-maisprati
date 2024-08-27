@@ -1,7 +1,9 @@
 import logo from "../../assets/svgs/netflix-logo.svg";
 import backgroundImage from "../../assets/background-image.jpg";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
+  const navigate = useNavigate()
   return (
     <div className="relative min-h-screen min-w-screen">
       <div
@@ -48,6 +50,7 @@ export function Login() {
               <button
                 type="button"
                 className="min-w-full min-h-10 bg-[#e50914d9] text-white text-base px-4 py-[6px] rounded-sm  hover:bg-[#B41123]"
+                onClick={()=>{navigate("/home")}}
               >
                 Entrar
               </button>
