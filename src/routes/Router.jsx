@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, Login } from "../pages";
+import { Home, Login, Movies, TvShow} from "../pages";
 
 export const router = createBrowserRouter([
   {
@@ -10,4 +10,12 @@ export const router = createBrowserRouter([
     path: "home",
     element: <Home />,
   },
+  {
+    path:"movies",
+    element: <Movies/>
+  },
+  {
+    path: "tvShows",
+    element: <TvShow/>
+  }
 ]);
