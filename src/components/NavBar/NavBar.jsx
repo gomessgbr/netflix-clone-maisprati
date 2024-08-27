@@ -14,16 +14,13 @@ export function NavBar({ onSearch }) {
             <NavLink to={"/home"}>Início</NavLink>
           </li>
           <li className="ml-5">
-            <a href="#">Séries</a>
+            <NavLink>Séries</NavLink>
           </li>
           <li className="ml-5">
-            <a href="#">Filmes</a>
+            <NavLink to={"/movies"}>Filmes</NavLink>
           </li>
           <li className="ml-5">
             <a href="#">Bombando</a>
-          </li>
-          <li className="ml-5">
-            <a href="#">Minha Lista</a>
           </li>
         </ul>
         <div className="flex items-center grow justify-end absolute top-0 right-[60px] h-full ">
