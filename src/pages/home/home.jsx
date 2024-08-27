@@ -8,6 +8,8 @@ import trailer from "../../assets/trailer/sex-education.mp4";
 
 // TODO - Fazer a parte das telas, quando clicar carregar cada uma das categorias da páginas
 // TODO - Dar erro quando os inputs da tela de login forem vazios
+// TODO - Deixar o NAVBAR responsivo
+// TODO - Arrumar as dimensões do video
 
 export function Home() {
   const [query, setQuery] = useState("");
@@ -23,17 +25,17 @@ export function Home() {
   useEffect(() => {}, []);
 
   return (
-    <div className="bg-black min-h-screen min-w-[100dvw] ">
+    <div className="bg-black min-h-screen min-w-[100dvw]">
       <NavBar onSearch={onSearch} />
 
       {query === "" && (
         <>
-          <div className="relative w-full h-2/5 bg-black">
-            <video className="object-contain" autoPlay muted loop>
+          <div className="relative w-full h-screen overflow-hidden  bg-black">
+            <video className="absolute top-0 left-0 w-full h-full object-cover"  autoPlay muted loop>
               <source src={trailer} type="video/mp4" />
             </video>
           </div>
-          <div className="pb-40">
+          <div className=" pb-40">
             <MovieList title={"Tendências"} />
             <MovieList title={"Bem Avaliados"} />
             <MovieList title={"Em Breve"} />
