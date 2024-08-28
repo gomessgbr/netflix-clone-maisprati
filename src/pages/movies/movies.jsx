@@ -35,7 +35,7 @@ export function Movies() {
       <NavBar onSearch={handleSearch} />
       <div className="px-[4%]">
         <h3 className="text-xl text-white px-4 py-2">Filmes</h3>
-        <div className="grid grid-rows-* grid-cols-6 gap-4">
+        <div className="grid grid-rows-* lg:grid-cols-6 gap-4">
           {movies.length > 0
             ? movies.map((movie) => (
                 <MovieCard

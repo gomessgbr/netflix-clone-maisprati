@@ -12,22 +12,24 @@ export function NavBar({ onSearch }) {
         <NavLink to={"/"} className="mr-6">
           <img src={logo} alt="logo" className="lg:w-24 w-20" />
         </NavLink>
-        <ul className="flex text-sm leading-4">
-          <li className="ml-5">
-            <NavLink to={"/home"}>Início</NavLink>
-          </li>
-          <li className="ml-5">
-            <NavLink to={"/tvShows"}>Séries</NavLink>
-          </li>
-          <li className="ml-5">
-            <NavLink to={"/movies"}>Filmes</NavLink>
-          </li>
-        </ul>
-        <div className=" absolute top-0 right-[60px] flex items-center h-full justify-end">
+        <div className="lg:relative lg:z-0 lg:justify-start lg:w-auto absolute z-30  text-sm leading-4 w-10/12">
+          <ul className="flex justify-center">
+            <li className="ml-5">
+              <NavLink to={"/home"}>Início</NavLink>
+            </li>
+            <li className="ml-5">
+              <NavLink to={"/tvShows"}>Séries</NavLink>
+            </li>
+            <li className="ml-5">
+              <NavLink to={"/movies"}>Filmes</NavLink>
+            </li>
+          </ul>
+        </div>
+        <div className="absolute top-0 lg:right-[60px] lg:w-auto w-[10%] right-[20px] flex items-center h-full justify-end">
           <div
-            className={` flex items-center  ${
+            className={` flex items-center ${
               showSearch
-                ? "border-[0.5px] border-white/85 pr-1 pl-2"
+                ? "border-[0.5px] border-white/85 lg:pr-1 lg:pl-2 rounded-md"
                 : "border-0"
             } transition-all duration-300 ease-in-out`}
           >
@@ -38,8 +40,8 @@ export function NavBar({ onSearch }) {
                   type="search"
                   name=""
                   id=""
-                  placeholder="Título, gente e gêneros"
-                  className={`bg-transparent p-[7px] pr-[14px] placeholder:text-[14px] focus:outline-none transition-all duration-300 ease-in-out ${
+                  placeholder="Títulos"
+                  className={`bg-transparent p-[7px] lg:pr-[14px] pr=[6px] placeholder:text-[14px] focus:outline-none transition-all duration-300 ease-in-out ${
                     showSearch ? "w-[200px]" : "w-0"
                   }`}
                   onChange={(e) => {

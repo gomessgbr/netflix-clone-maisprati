@@ -35,8 +35,7 @@ export function TvShow() {
 
       <div className="px-[4%]">
         <h3 className="text-xl text-white px-4 py-2">Séries</h3>
-        {/* {loading && <p className="text-white">Loading...</p>} */}
-        <div className="grid grid-rows-* grid-cols-6 gap-4">
+        <div className="grid grid-rows-* lg:grid-cols-6 gap-4">
           {tvShow.length > 0 &&
             tvShow.map((serie) => (
               <MovieCard
