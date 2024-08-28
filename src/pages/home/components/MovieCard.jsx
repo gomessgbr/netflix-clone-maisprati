@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useGetMovieDetails } from "../hooks/useGetMovieDetails";
 import { Modal } from "../../../components";
 import { useGetMovieImage } from "../hooks/useGetMovieImage";
+import { useGetMovieDetails } from "../../../hooks";
 
 /* eslint-disable react/prop-types */
 export function MovieCard({ title, url, id }) {
