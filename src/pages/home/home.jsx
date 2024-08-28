@@ -30,7 +30,7 @@ export function Home() {
 
       {query === "" && (
         <>
-          <div className="relative w-full h-screen overflow-hidden  bg-black">
+          <div className="relative w-7xl h-[720px]  bg-black">
             <video className="absolute top-0 left-0 w-full h-full object-cover"  autoPlay muted loop>
               <source src={trailer} type="video/mp4" />
             </video>
