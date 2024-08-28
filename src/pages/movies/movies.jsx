@@ -24,13 +24,11 @@ export function Movies() {
     setSearchQuery(e.target.value);
   };
 
-  useEffect(()=>{
-    console.log("!teste", page);
-    if(page === 1){
+  useEffect(() => {
+    if (page === 1) {
       fetchNextPage();
     }
-      
-  },[page])
+  }, [page]);
 
   return (
     <div className="bg-black min-h-screen min-w-[98dvw]">
