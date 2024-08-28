@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { NavBar } from "../../components";
 import { MovieList } from "./components/MovieList";
-// import { useGetMovies } from "./hooks/useGetMovies";
 import { useGetCollection } from "./hooks/useGetColletion";
 import { MovieCard } from "./components/MovieCard";
 import trailer from "../../assets/trailer/sex-education.mp4";
 
-// TODO - Fazer a parte das telas, quando clicar carregar cada uma das categorias da páginas
-// TODO - Dar erro quando os inputs da tela de login forem vazios
 // TODO - Deixar o NAVBAR responsivo
-// TODO - Arrumar as dimensões do video
 
 export function Home() {
   const [query, setQuery] = useState("");
@@ -31,7 +27,12 @@ export function Home() {
       {query === "" && (
         <>
           <div className="relative max-w-[100dvw] w-7xl h-[720px]  bg-black">
-            <video className="absolute top-0 left-0 w-full h-full object-cover"  autoPlay muted loop>
+            <video
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+            >
               <source src={trailer} type="video/mp4" />
             </video>
           </div>

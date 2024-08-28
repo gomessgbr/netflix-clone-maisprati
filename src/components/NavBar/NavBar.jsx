@@ -19,9 +19,6 @@ export function NavBar({ onSearch }) {
           <li className="ml-5">
             <NavLink to={"/movies"}>Filmes</NavLink>
           </li>
-          <li className="ml-5">
-            <a href="#">Bombando</a>
-          </li>
         </ul>
         <div className="flex items-center grow justify-end absolute top-0 right-[60px] h-full ">
           <label className=" flex items-center border-[0.5px] border-white/85  ">
