@@ -14,7 +14,7 @@ export function NavBar({ onSearch }) {
             <NavLink to={"/home"}>Início</NavLink>
           </li>
           <li className="ml-5">
-            <NavLink>Séries</NavLink>
+            <NavLink to={"/tvShows"}>Séries</NavLink>
           </li>
           <li className="ml-5">
             <NavLink to={"/movies"}>Filmes</NavLink>
