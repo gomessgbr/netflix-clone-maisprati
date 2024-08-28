@@ -5,11 +5,9 @@ import { useGetCollection } from "./hooks/useGetColletion";
 import { MovieCard } from "./components/MovieCard";
 import trailer from "../../assets/trailer/sex-education.mp4";
 
-// TODO - Deixar o NAVBAR responsivo
 
 export function Home() {
   const [query, setQuery] = useState("");
-  // const { movies } = useGetMovies();
   const { getColletion, moviesCollection } = useGetCollection();
 
   const onSearch = (e) => {
