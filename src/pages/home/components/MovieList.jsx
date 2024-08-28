@@ -84,8 +84,8 @@ export function MovieList({ title }) {
   }, [title]);
 
   return (
-    <div className=" mt-4 space-y-8 text-white">
-      <div className="w-full max-w-full overflow-hidden">
+    <div className="mt-4 space-y-8 text-white  w-auto">
+      <div className="max-w-[100dvw] w-full">
         <p className="text-lg font-semibold mb-4 mx-4">{title}</p>
         <Slider {...settings}>
           {movies.length > 0 &&

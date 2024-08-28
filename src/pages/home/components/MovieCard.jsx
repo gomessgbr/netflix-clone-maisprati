@@ -19,7 +19,7 @@ export function MovieCard({ title, url, id }) {
 
   return (
     <div
-      className="cursor-pointer rounded-lg "
+      className="cursor-pointer rounded-lg w-full "
       onClick={handleClick}
     >
       <div className="relative">
@@ -28,7 +28,7 @@ export function MovieCard({ title, url, id }) {
       <img
         src={`https://image.tmdb.org/t/p/w300/${url}`}
         alt=""
-        className="w-full h-auto"
+        className="w-full h-auto max-w-full"
       />
       <Modal
         open={showModal}
