@@ -25,17 +25,17 @@ export function Home() {
   useEffect(() => {}, []);
 
   return (
-    <div className="bg-black min-h-screen min-w-[100dvw]">
+    <div className="bg-black min-h-screen min-w-[98dvw]">
       <NavBar onSearch={onSearch} />
 
       {query === "" && (
         <>
-          <div className="relative w-7xl h-[720px]  bg-black">
+          <div className="relative max-w-[100dvw] w-7xl h-[720px]  bg-black">
             <video className="absolute top-0 left-0 w-full h-full object-cover"  autoPlay muted loop>
               <source src={trailer} type="video/mp4" />
             </video>
           </div>
-          <div className=" pb-40">
+          <div className=" max-w-[95dvw] pb-40 overflow-hidden">
             <MovieList title={"Tendências"} />
             <MovieList title={"Bem Avaliados"} />
             <MovieList title={"Em Breve"} />
@@ -44,7 +44,7 @@ export function Home() {
         </>
       )}
       {query !== "" && (
-        <div className="grid grid-rows-* grid-cols-6 gap-4">
+        <div className="grid grid-rows-* grid-cols-6 gap-4 max-w-[100dvw]">
           {moviesCollection &&
             moviesCollection.map((movie) => (
               <MovieCard
