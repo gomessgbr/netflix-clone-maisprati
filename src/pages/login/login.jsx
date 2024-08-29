@@ -1,7 +1,41 @@
-import logo from "../../assets/netflix-logo.svg";
+import logo from "../../assets/svgs/netflix-logo.svg";
 import backgroundImage from "../../assets/background-image.jpg";
+import { useNavigate } from "react-router-dom";
+import { useId, useState } from "react";
 
 export function Login() {
+  const [errors, setErrors] = useState({
+    password: false,
+    user: false,
+    message: "",
+  });
+  const navigate = useNavigate();
+  const id = useId();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const { user, password } = Object.fromEntries(formData.entries());
+    if (!user || !password) {
+      !user
+        ? setErrors({
+            password: false,
+            user: true,
+            message: "Preencha o Email",
+          })
+        : setErrors({
+            password: true,
+            user: false,
+            message: "Preencha a Senha",
+          });
+    }
+
+    navigate("/home");
+  };
+
+  const resetErrors = () => {
+    setErrors({ message: "", password: false, user: false });
+  };
   return (
     <div className="relative min-h-screen min-w-screen">
       <div
@@ -28,26 +62,36 @@ export function Login() {
               </p>
             </header>
             <form
-              action=""
-              className="flex flex-col flex-1 gap-4 text-white font-sans "
+              className="flex flex-col flex-1 gap-4 text-white font-sans"
+              id={id}
+              onSubmit={handleSubmit}
             >
               <input
                 type="text"
                 placeholder="Email ou número de celular"
                 className=" w-full border-[1px] border-slate-400  bg-transparent px-4 py-4"
+                name="user"
+                onFocus={resetErrors}
               />
 
-              <p></p>
+              {errors.user && (
+                <p className="text-red-600 py-1">{errors.message}</p>
+              )}
               <input
                 type="password"
                 placeholder="Senha"
                 className=" border-[1px] border-slate-400  bg-transparent px-4 py-4"
+                name="password"
+                onFocus={resetErrors}
               />
-              <p></p>
+              {errors.password && (
+                <p className="text-red-600 py-1">{errors.message}</p>
+              )}
 
               <button
-                type="button"
+                type="submit"
                 className="min-w-full min-h-10 bg-[#e50914d9] text-white text-base px-4 py-[6px] rounded-sm  hover:bg-[#B41123]"
+                form={id}
               >
                 Entrar
               </button>
@@ -73,7 +117,12 @@ export function Login() {
                   id="remeberme"
                   className="w-4 h-4 cursor-pointer text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <label htmlFor="remeberme" className="ms-2 text-sm font-medium dark:text-gray-300">Lembre-se de mim</label>
+                <label
+                  htmlFor="remeberme"
+                  className="ms-2 text-sm font-medium dark:text-gray-300"
+                >
+                  Lembre-se de mim
+                </label>
               </div>
               <p>
                 Novo por aqui? <a href="">Assine agora</a>
