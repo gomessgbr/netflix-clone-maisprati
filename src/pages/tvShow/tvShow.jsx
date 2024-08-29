@@ -30,7 +30,7 @@ export function TvShow() {
     }
   }, [page]);
   return (
-    <div className="bg-black min-h-screen min-w-[100dvw]">
+    <div className="bg-black min-h-screen min-w-[98dvw]">
       <NavBar onSearch={handleSearch} />
 
       <div className="px-[4%]">
